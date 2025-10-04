@@ -1,6 +1,11 @@
-from textblob import TextBlob
+import os
+from dotenv import load_dotenv
 
-def add_sentiment(records):
-    for r in records:
-        r["sentiment"] = TextBlob(r["text"]).sentiment.polarity
-    return records
+load_dotenv()
+SENTIMENT_API_KEY = os.getenv("SENTIMENT_API_KEY")
+
+def add_sentiment(data):
+    for item in data:
+        # Placeholder: if you have a sentiment API, call it here
+        item["sentiment"] = "neutral"
+    return data
