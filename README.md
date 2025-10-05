@@ -1,115 +1,81 @@
-# 🕵️‍♂️ OSINT Lab 7 - Automated Social Media OSINT Pipeline
+🛰️ OSINT Lab 7 – Automated Social Media OSINT Pipeline
+📘 Project Overview
 
-## 📘 Project Overview
-This project implements an **automated OSINT (Open Source Intelligence) pipeline** that collects, analyzes, and visualizes social media data from multiple platforms such as **Reddit** and **Twitter**.  
-It performs sentiment analysis, generates word clouds, and stores results for further investigation.
+This project implements an automated OSINT (Open-Source Intelligence) pipeline that collects, processes, and analyzes social media data from multiple platforms, including Reddit and Twitter.
 
----
+🚀 Features
 
-## 🚀 Features
-- 🌐 Multi-platform data collection (Reddit, Twitter)
-- 🧹 Automated data cleaning and preprocessing
-- 💬 Sentiment analysis using TextBlob
-- 📊 Data visualization with word clouds and sentiment charts
-- 💾 Local data storage in JSON format
-- 🔄 Modular structure for easy updates and debugging
+🌐 Multi-platform data collection (Reddit & Twitter)
 
----
+🧹 Automated data cleaning and preprocessing
 
-## 🧰 Project Structure
-osint_pipeline/
-├── collectors/ # Reddit and Twitter data collectors
-│ ├── reddit_collector.py
-│ ├── twitter_collector.py
-│
-├── utils/ # Processing and visualization scripts
-│ ├── data_cleaner.py
-│ ├── visualize.py
-│
-├── data/ # Contains collected and processed data
-│ ├── reddit_results.json
-│ ├── twitter_results.json
-│ ├── reddit_wordcloud.png
-│ ├── reddit_sentiment.png
-│ ├── twitter_wordcloud.png
-│ ├── twitter_sentiment.png
-│
-├── main.py # Main pipeline file
-├── requirements.txt # Dependencies list
-└── README.md # Project documentation
+🧠 Sentiment analysis using TextBlob
 
-yaml
-Copy code
+📈 Word cloud and sentiment visualization
 
----
+💾 SQLite database storage
 
-## ⚙️ Setup Instructions
+⚡ Simple setup with .env for API keys
 
-### 1️⃣ Clone the Repository
-```bash
+⚙️ Setup Instructions
+1️⃣ Clone the Repository
 git clone https://github.com/Mathewsunil24/osint_7.git
-cd osint_pipeline
-2️⃣ Create a Virtual Environment
-bash
-Copy code
+cd osint_7
+
+2️⃣ Create Virtual Environment
 python -m venv osint_env
-osint_env\Scripts\activate   # On Windows
-# or
-source osint_env/bin/activate   # On Linux/Mac
+
+
+Activate it:
+
+Windows
+
+osint_env\Scripts\activate
+
+
+Linux/Mac
+
+source osint_env/bin/activate
+
 3️⃣ Install Dependencies
-bash
-Copy code
 pip install -r requirements.txt
+
 4️⃣ Set Up Environment Variables
-Create a .env file in the root folder and add your API keys:
 
-ini
-Copy code
-REDDIT_CLIENT_ID=your_client_id
-REDDIT_SECRET=your_secret
-REDDIT_USER_AGENT=your_user_agent
+Create a .env file in your project folder and add your keys:
 
-TWITTER_BEARER_TOKEN=your_bearer_token
+REDDIT_CLIENT_ID=your_reddit_client_id
+REDDIT_CLIENT_SECRET=your_reddit_secret
+TWITTER_BEARER_TOKEN=your_twitter_bearer_token
+
 5️⃣ Run the Pipeline
-bash
-Copy code
 python main.py
+
 🔑 API Keys Required
-Reddit API: Client ID, Secret, and User Agent
 
-Twitter API: Bearer Token
+🐦 Twitter API Bearer Token
 
-(Optional) You can reduce the number of tweets fetched in twitter_collector.py to avoid rate-limit issues.
+👽 Reddit Client ID and Secret
 
-🧠 How It Works
-Data Collection – Collects posts and tweets using Reddit and Twitter APIs.
+⚠️ Note: Make sure your API credentials are stored safely in the .env file and never shared publicly.
 
-Processing – Cleans text, removes duplicates and unwanted symbols.
+📂 Project Structure
+osint_pipeline/
+├── collectors/          # Platform-specific data collectors
+├── utils/               # Visualization and helper scripts
+├── data/                # Database and generated images
+├── main.py              # Main pipeline
+├── requirements.txt     # Dependencies
+└── README.md            # Project documentation
 
-Sentiment Analysis – Classifies content as Positive, Negative, or Neutral using TextBlob.
+📊 Output
 
-Visualization – Generates:
+After successful execution:
 
-📈 Sentiment distribution chart
+Reddit and Twitter data are stored in data/
 
-☁️ WordCloud for top words
+Generated visualizations:
 
-Storage – Saves outputs in /data folder for review.
+reddit_wordcloud.png, reddit_sentiment.png
 
-📸 Sample Outputs
-Platform	Word Cloud	Sentiment Graph
-Reddit		
-Twitter	
-
-🧩 Technologies Used
-🐍 Python 3
-
-🌍 PRAW (Reddit API Wrapper)
-
-🐦 Tweepy (Twitter API Wrapper)
-
-🧠 TextBlob for sentiment analysis
-
-🎨 Matplotlib & WordCloud for visualization
-
-💾 JSON & SQLite for data handling
+twitter_wordcloud.png, twitter_sentiment.png
