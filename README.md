@@ -1,81 +1,68 @@
-🛰️ OSINT Lab 7 – Automated Social Media OSINT Pipeline
-📘 Project Overview
+# **OSINT Lab 7 - Automated Social Media OSINT Pipeline**
 
-This project implements an automated OSINT (Open-Source Intelligence) pipeline that collects, processes, and analyzes social media data from multiple platforms, including Reddit and Twitter.
+## **Project Overview**
+This project implements an automated OSINT pipeline that collects, processes, and analyzes social media data from multiple platforms including Reddit, GitHub, and Twitter.
 
-🚀 Features
+## **Features**
+- ✅ Multi-platform data collection:
+  - Reddit
+  - GitHub
+  - Twitter
+- ✅ Automated data cleaning and preprocessing
+- ✅ Sentiment analysis using TextBlob
+- ✅ SQLite database storage
+- ✅ Scheduled automated collection
 
-🌐 Multi-platform data collection (Reddit & Twitter)
+## **Setup Instructions**
 
-🧹 Automated data cleaning and preprocessing
-
-🧠 Sentiment analysis using TextBlob
-
-📈 Word cloud and sentiment visualization
-
-💾 SQLite database storage
-
-⚡ Simple setup with .env for API keys
-
-⚙️ Setup Instructions
-1️⃣ Clone the Repository
+### **1. Clone the repository**
+```bash
 git clone https://github.com/Mathewsunil24/osint_7.git
-cd osint_7
-
-2️⃣ Create Virtual Environment
+cd osint_pipeline
+2. Create a virtual environment
+bash
+Copy code
 python -m venv osint_env
 
-
-Activate it:
-
-Windows
-
-osint_env\Scripts\activate
-
-
-Linux/Mac
-
+# Activate the environment
+# Linux/Mac
 source osint_env/bin/activate
 
-3️⃣ Install Dependencies
+# Windows
+osint_env\Scripts\activate
+3. Install dependencies
+bash
+Copy code
 pip install -r requirements.txt
+4. Set up environment variables
+bash
+Copy code
+cp sample.env.example .env
+# Edit the .env file with your API keys
+5. Run the pipeline
+bash
+Copy code
+python main_safe.py
+API Keys Required
+🟢 Twitter API Bearer Token
 
-4️⃣ Set Up Environment Variables
+🟢 Reddit Client ID and Secret
 
-Create a .env file in your project folder and add your keys:
+🟢 GitHub Personal Access Token (optional)
 
-REDDIT_CLIENT_ID=your_reddit_client_id
-REDDIT_CLIENT_SECRET=your_reddit_secret
-TWITTER_BEARER_TOKEN=your_twitter_bearer_token
-
-5️⃣ Run the Pipeline
-python main.py
-
-🔑 API Keys Required
-
-🐦 Twitter API Bearer Token
-
-👽 Reddit Client ID and Secret
-
-⚠️ Note: Make sure your API credentials are stored safely in the .env file and never shared publicly.
-
-📂 Project Structure
+Project Structure
+bash
+Copy code
 osint_pipeline/
 ├── collectors/          # Platform-specific data collectors
-├── utils/               # Visualization and helper scripts
-├── data/                # Database and generated images
-├── main.py              # Main pipeline
-├── requirements.txt     # Dependencies
-└── README.md            # Project documentation
+├── utils/               # Utilities for processing
+├── data/                # Database and generated files
+├── screenshots/         # Evidence screenshots
+├── main_safe.py         # Main pipeline
+└── requirements.txt     # Dependencies
+Notes
+Make sure your API keys are kept secret.
 
-📊 Output
+Ensure your virtual environment is activated before running scripts.
 
-After successful execution:
-
-Reddit and Twitter data are stored in data/
-
-Generated visualizations:
-
-reddit_wordcloud.png, reddit_sentiment.png
-
-twitter_wordcloud.png, twitter_sentiment.png
+Use the data/ folder to check saved results, WordClouds, and sentiment charts.
